@@ -1,3 +1,4 @@
+# app.py
 from flask import Flask, request, send_file, jsonify
 from flask_cors import CORS
 from pytube import YouTube
@@ -26,4 +27,5 @@ def download_video():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    from waitress import serve
+    serve(app, host='0.0.0.0', port=8080)
