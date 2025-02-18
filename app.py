@@ -23,6 +23,7 @@ def download_video():
 
         return send_file(temp_file.name, as_attachment=True, download_name='video.mp4', mimetype='video/mp4')
 
+
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
